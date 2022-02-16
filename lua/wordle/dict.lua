@@ -12974,7 +12974,7 @@ local words = {
 }
 
 local types = require 'toolshed.types'
-require 'types.word'
+require 'wordle.types.word'
 local dict = { len = 0 }
 for _, line in ipairs(words) do
     local word = types.word.new(line)

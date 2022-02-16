@@ -1,7 +1,7 @@
 local string = require 'toolshed.util.string.global'
-require 'types.stat'
+require 'wordle.types.stat'
 local types = require 'toolshed.types'
-local dict = require 'wordle-dict'
+local dict = require 'wordle.dict'
 return types.def('wordle', {
     word_stats = function(self)
         local stats = {}

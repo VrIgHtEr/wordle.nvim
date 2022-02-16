@@ -1,7 +1,7 @@
 local wordle = {}
 local types = require 'toolshed.types'
 
-require 'types.wordle'
+require 'wordle.types.wordle'
 
 print('ATTEMPT 0: ' .. table.concat(types.wordle.get_prediction '', ' '))
 print '---'

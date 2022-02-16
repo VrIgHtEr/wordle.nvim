@@ -1,4 +1,4 @@
-require 'types.word'
+require 'wordle.types.word'
 return require('toolshed.types').def('stat', {
     __eq = function(a, b)
         return a.word == b.word
