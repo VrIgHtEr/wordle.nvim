@@ -125,6 +125,13 @@ return types.def('wordle', {
         end
     end,
 }, function(game, length)
-    game.dict = dict
+    game.dict = {}
+    local idx = 0
+    for _, x in ipairs(dict) do
+        if x.len == length then
+            idx = idx + 1
+            game.dict[idx] = x
+        end
+    end
     game.length = length
 end)
