@@ -1,4 +1,5 @@
 local fnil = function() end
+local string = require 'toolshed.util.string'
 return require('toolshed.types').def('word', {
     len = 0,
     letters = 0,

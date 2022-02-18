@@ -1,4 +1,4 @@
-local string = require 'toolshed.util.string.global'
+local string = require 'toolshed.util.string'
 require 'wordle.types.stat'
 local types = require 'toolshed.types'
 local dict = require 'wordle.dict'
