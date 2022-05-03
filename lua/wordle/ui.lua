@@ -28,6 +28,9 @@ function ui.show()
         return s:sub(a, b - 1)
     end
 
+    local prev = ''
+    local predictions = {}
+
     popup:mount()
     popup:on(event.TextChangedI, function(evt)
         vim.api.nvim_exec('mes clear', true)
@@ -100,14 +103,22 @@ function ui.show()
             table.insert(lines, '')
         end
 
-        local predictions = types.wordle.get_prediction(table.concat(query, ' '))
-        local idx = #lines
+        query = table.concat(query, ' ')
+        local lastline = #lines
 
-        for _, x in ipairs(predictions) do
-            idx = idx + 1
-            lines[idx] = x
+        if query ~= prev then
+            prev = query
+            predictions = types.wordle.get_prediction(query)
+
+            local idx = #lines
+
+            for _, x in ipairs(predictions) do
+                idx = idx + 1
+                lines[idx] = x
+            end
+            lastline = -1
         end
-        vim.api.nvim_buf_set_lines(evt.buf, 0, -1, false, lines)
+        vim.api.nvim_buf_set_lines(evt.buf, 0, lastline, false, lines)
     end)
 
     popup:on(event.BufLeave, function()
